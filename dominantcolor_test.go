@@ -40,9 +40,9 @@ func testImage(t *testing.T) image.Image {
 func TestFind(t *testing.T) {
 	img := testImage(t)
 	c := dominantcolor.Find(img)
-	d := distance(c, firefoxOrange)
+	d := distance(*c, firefoxOrange)
 	t.Log("Found dominant color:", dominantcolor.Hex(c))
-	t.Log("Firefox orange:      ", dominantcolor.Hex(firefoxOrange))
+	t.Log("Firefox orange:      ", dominantcolor.Hex(&firefoxOrange))
 	t.Logf("Distance:             %.2f", d)
 	if d > 50 {
 		t.Errorf("Found color is not close.")
